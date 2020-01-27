@@ -19,8 +19,8 @@ export default (sequelize, DataTypes) => {
     }),
     Team.belongsTo(models.User, {
       foreignKey: 'owner',
-      onDelete: CASCADE
-    }
+      onDelete: 'CASCADE'
+    })
   };
   return Team;
 };

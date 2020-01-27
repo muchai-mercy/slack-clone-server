@@ -12,7 +12,7 @@ export default (sequelize, DataTypes) => {
   Channel.associate = (models) => {
     Channel.belongsTo(models.Team, {
       foreignKey: 'teamId',
-      onDelete: CASCADE
+      onDelete: 'CASCADE'
     })
     Channel.belongsToMany(models.User, {
       through: 'ChannelMember',

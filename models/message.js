@@ -8,12 +8,12 @@ export default (sequelize, DataTypes) => {
   Message.associate = (models) => {
     Message.belongsTo(models.User, {
       foreignKey: 'userId',
-      onDelete: CASCADE
+      onDelete: 'CASCADE'
     }),
     Message.belongsTo(models.Channel, {
       foreignKey: 'channelId',
-      onDelete: CASCADE
-    }),
+      onDelete: 'CASCADE'
+    })
   };
   return Message;
 };

@@ -14,6 +14,12 @@ export default (sequelize, DataTypes) => {
       foreignKey: 'teamId',
       onDelete: CASCADE
     })
+    Channel.belongsToMany(models.User, {
+      through: 'ChannelMember',
+      foreignKey: 'channelId',
+      otherKey: 'userId',
+      as: 'channelMembers'
+    })
   };
   return Channel;
 };

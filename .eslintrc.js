@@ -4,4 +4,7 @@ module.exports = {
 
       "import"
   ]
+  "rules": {
+    "comma-dangle": ["error", "never"]
+  }
 };

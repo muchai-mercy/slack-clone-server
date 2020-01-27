@@ -5,10 +5,10 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
   dialect: 'postgres'});
 
 const models = {
-  User: sequelize.import('/users'),
-  Channel: sequelize.import('channels'),
-  Team: sequelize.import('teams'),
-  Message: sequelize.import('messages')
+  User: sequelize.import('./users'),
+  Channel: sequelize.import('./channels'),
+  Team: sequelize.import('./teams'),
+  Message: sequelize.import('./messages')
 };
 
 Object.keys(db).forEach((modelName) => {

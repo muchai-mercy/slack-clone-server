@@ -7,4 +7,11 @@ export default gql`
     user: User!
     channel: Channel!
   }
+  type Query {
+    getUserMessages(userId: Int!, channelId: Int!): [Message!]!
+  }
+
+  type Mutation {
+    createMessage(text: String!, channelId: Int!, userId: Int!): Message!
+  }
 `;

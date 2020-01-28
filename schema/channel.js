@@ -9,6 +9,9 @@ export default gql`
     users: [User!]!
   }
 
+  type Query {
+    getTeamChannels (teamId: Int!): [Channel!]!
+  }
   type Mutation {
     createChannel (teamId: Int!, name: String!, public: Boolean!): Channel!
   }

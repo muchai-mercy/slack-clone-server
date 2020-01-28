@@ -14,7 +14,10 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: {
-    models
+    models,
+    user: {
+      id: 1
+    }
   },
   playground: {
     endpoint: '/graphql'

@@ -12,6 +12,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      public: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+      },
       teamId: {
         type: Sequelize.INTEGER,
         reference: {

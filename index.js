@@ -1,6 +1,7 @@
 import { ApolloServer } from 'apollo-server-express';
 import express from 'express';
 import path from 'path';
+import cors from 'cors';
 import { fileLoader, mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
 import models from './models';
 
@@ -9,6 +10,7 @@ const typeDefs = mergeTypes(types);
 const resolvers = mergeResolvers(fileLoader(path.join(__dirname, './resolvers')));
 
 const app = express();
+app.use(cors('*'));
 
 const server = new ApolloServer({
   typeDefs,

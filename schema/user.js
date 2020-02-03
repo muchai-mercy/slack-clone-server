@@ -1,13 +1,12 @@
 import { gql } from 'apollo-server-express';
 
-
 export default gql`
   type User {
-    id: Int!
+    id: Int
     email: String!
     username: String!
     messages: Message!
-    teams: [Team!]!
+    teams: [Team!]
   }
 
   type Query {
@@ -15,7 +14,13 @@ export default gql`
     getAllUsers: [User!]!
   }
 
+  type RegisterResponse {
+    isRegistered: Boolean!
+    user: User!
+    errors: [Error!]
+  }
+
   type Mutation {
-    register(username: String! email: String! password: String!): Boolean!
+    register(username: String! email: String! password: String!): RegisterResponse!
   }
 `;

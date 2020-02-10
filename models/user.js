@@ -5,16 +5,12 @@ export default (sequelize, DataTypes) => {
       unique: true,
       allowNull: false,
       validate: {
-        isAlphaNumeric: {
-          args: true,
-          msg: "Username can only be letters/numbers"
-        },
         notEmpty: {
           args: true,
           msg: "Username cannot be empty"
         },
         len: {
-          args: [3, 20],
+          args: [[3, 20]],
           msg: "Username needs to be 3 characters and above"
         },
       }
@@ -24,12 +20,8 @@ export default (sequelize, DataTypes) => {
       unique: true,
       allowNull: false,
       validate: {
-        isAlphaNumeric: {
-          args: true,
-          msg: "Email can only be letters/numbers"
-        },
         len: {
-          args: [3, 20],
+          args: [[3, 20]],
           msg: "Email needs to be 3 characters and above"
         },
         notEmpty: {
@@ -46,16 +38,12 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        isAlphaNumeric: {
-          args: true,
-          msg: "Password can only be letters/numbers"
-        },
         notEmpty: {
           args: true,
           msg: "Password cannot be empty"
         },
         len: {
-          args: [5, 50],
+          args: [[5, 50]],
           msg: "Password needs to be 3 characters and above"
         },
       }

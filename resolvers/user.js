@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import formatErrors from './helper';
+// import formatErrors from './helper';
 
 export default {
   Query: {
@@ -11,7 +11,8 @@ export default {
         return await models.User.findAll();
       }
       catch(error) {
-        return formatErrors(error, models);
+        return error;
+        // return formatErrors(error, models);
       }
     }
   },
@@ -27,9 +28,10 @@ export default {
         };
       }
       catch(error) {
+        console.log(error);
         return {
           isRegistered: false,
-          errors: formatErrors(error, models)
+          errors: error
         };
       }
     }

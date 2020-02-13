@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-// import formatErrors from './helper';
+import formatErrors from '../formatErrors';
 
 export default {
   Query: {
@@ -11,27 +11,25 @@ export default {
         return await models.User.findAll();
       }
       catch(error) {
-        return error;
-        // return formatErrors(error, models);
+        return formatErrors(error);
       }
     }
   },
 
   Mutation: {
-    register: async (parent, {password, ...otherArgs}, {models}) => {
+    register: async (parent, {password, username, email}, {models}) => {
       try {
         const hashedPassword = await bcrypt.hash(password, 12);
-        const user = await models.User.create({...otherArgs, password: hashedPassword});
+        const user = await models.User.create({username, email, password: hashedPassword});
         return {
           isRegistered: true,
           user
         };
       }
       catch(error) {
-        console.log(error);
         return {
           isRegistered: false,
-          errors: error
+          errors: formatErrors(error)
         };
       }
     }

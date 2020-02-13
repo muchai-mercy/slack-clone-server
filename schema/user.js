@@ -16,8 +16,8 @@ export default gql`
 
   type RegisterResponse {
     isRegistered: Boolean!
-    user: User!
-    errors: [Error!]
+    user: User
+    errors: [Error]
   }
 
   type Mutation {
